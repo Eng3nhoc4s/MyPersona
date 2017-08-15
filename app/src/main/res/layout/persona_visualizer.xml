@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lb_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_persona_name" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="myPersona Name" />
+
+    <TextView
+        android:id="@+id/lb_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_persona_age" />
+
+    <TextView
+        android:id="@+id/tv_age"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="25" />
+
+    <TextView
+        android:id="@+id/lb_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_persona_style" />
+
+    <TextView
+        android:id="@+id/tv_style"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Steampunk" />
+
+    <TextView
+        android:id="@+id/lb_occupation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_persona_occupation" />
+
+    <TextView
+        android:id="@+id/tv_occupation"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="myOccupation" />
+
+    <TextView
+        android:id="@+id/lb_physicaltraces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_personal_physical_traces" />
+
+    <TextView
+        android:id="@+id/tv_physicaltraces"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="- Fluffy" />
+
+    <TextView
+        android:id="@+id/lb_personality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_persona_personality" />
+
+    <TextView
+        android:id="@+id/tv_personality"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="- Grumpy" />
+
+    <TextView
+        android:id="@+id/lb_biography"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_persona_biography" />
+
+    <TextView
+        android:id="@+id/tv_biography"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Once upon a time..." />
+</LinearLayout>

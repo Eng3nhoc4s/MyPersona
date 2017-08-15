@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding8"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lb_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_persona_name" />
+
+    <TextView
+        android:id="@+id/tv_persona_name"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="myPersona Name" />
+
+    <TextView
+        android:id="@+id/lb_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_persona_style" />
+
+    <TextView
+        android:id="@+id/tv_style"
+        style="@style/displayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Steampunk" />
+</LinearLayout>

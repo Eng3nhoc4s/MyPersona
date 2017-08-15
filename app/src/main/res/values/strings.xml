@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyPersona</string>
+    <string name="label_persona_name">Name</string>
+    <string name="label_persona_style">Style</string>
+    <string name="label_persona_age">Age</string>
+    <string name="label_personal_physical_traces">Physical Traces</string>
+    <string name="label_persona_occupation">Occupation/Style</string>
+    <string name="label_persona_personality">Personality</string>
+    <string name="label_persona_biography">Biography</string>
+    <string name="persona_name_example">Allistair Lencaster</string>
+    <string name="persona_age_example">25</string>
+    <string name="persona_occupation_example">Engineer, Sky Pirate, Detective, Scientist</string>
+    <string name="persona_physical_traces_example">Strong, tall, thick eyebrows, wears glasses</string>
+    <string name="persona_personality_example">Nice, Arrogant, Likes to help others, Hates everybody</string>
+    <string name="persona_biography_example">Born in X, son/daughter of Y, studied Z, etc...</string>
+    <string name="title_activity_main">MyPersona</string>
+    <string name="title_persona_edit">Edit Persona</string>
+    <string name="title_persona_create">Create persona</string>
+</resources>
