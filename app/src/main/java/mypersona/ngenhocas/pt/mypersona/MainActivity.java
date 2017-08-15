@@ -1,8 +1,11 @@
 package mypersona.ngenhocas.pt.mypersona;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -10,6 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import static java.security.AccessController.getContext;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         Persona p1 = new Persona("Nhocas von Fueuer", 25, "Steampunk", "Bum",       "Fat",  "Grumpy", "Era uma vez...");
         Persona p2 = new Persona("Von Syco",          40, "Steampunk", "Superstar", "Tall", "Nice",   "Era duas vez...");
 
-        JSONArray pList = new JSONArray();
-        pList.put(JSONUtils.jsonifyPersona(p1));
-        pList.put(JSONUtils.jsonifyPersona(p2));
+        JSONArray jsonArray = new JSONArray();
+        jsonArray.put(JSONUtils.jsonifyPersona(p1));
+        jsonArray.put(JSONUtils.jsonifyPersona(p2));
 
-        FileUtils.writePersonaFile(this, pList.toString());
+        FileUtils.writePersonaFile(this, jsonArray.toString());
 
         String s = FileUtils.readPersonaFile(this);
 
@@ -54,6 +59,19 @@ public class MainActivity extends AppCompatActivity {
         ListView personaList = (ListView) findViewById(R.id.personaListView);
 
         personaList.setAdapter(displayAdapter);
+
+        /**************************************
+         *      MAIN LAYOUT BUTTONS
+         ***************************************/
+
+        Button newPersona = (Button) findViewById(R.id.btn_newPersona);
+        newPersona.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PersonaCreate.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

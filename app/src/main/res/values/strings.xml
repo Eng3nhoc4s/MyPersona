@@ -16,4 +16,7 @@
     <string name="title_activity_main">MyPersona</string>
     <string name="title_persona_edit">Edit Persona</string>
     <string name="title_persona_create">Create persona</string>
+    <string name="btn_new_persona">New Persona</string>
+    <string name="btn_edit_persona">Edit Persona</string>
+    <string name="btn_save_persona">Save</string>
 </resources>
