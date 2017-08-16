@@ -44,6 +44,8 @@ public class PersonaAdapter extends ArrayAdapter<Persona> {
             @Override
             public void onClick(View view) {
 
+                //TODO: Need to get hand on this
+
 //                Intent intent = new Intent(getContext(), Visualizer.class);
 //                intent.putExtra("ACTIVITY_NAME", currentGridDisplayEntry.getmName());
 //                intent.putExtra("SONG_TRACK_ID", currentGridDisplayEntry.getmMusicResourceID());

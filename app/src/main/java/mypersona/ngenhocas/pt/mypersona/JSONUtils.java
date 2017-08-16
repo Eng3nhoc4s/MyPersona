@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class JSONUtils {
 
     /**
-     * @param p
-     * @return
+     * Takes a persona object and turns it into a JSON object
+     * @param p The persona object
+     * @return A JSON object
      */
     public static JSONObject jsonifyPersona(Persona p) {
 
@@ -40,8 +41,9 @@ public class JSONUtils {
 
 
     /**
-     * @param object
-     * @return
+     * Turns a JSON object into a persona object
+     * @param object The JSON object to be parsed
+     * @return A Persona object from the JSON file
      */
     public static Persona personifyJSON(JSONObject object) {
 
@@ -64,6 +66,11 @@ public class JSONUtils {
         return persona;
     }
 
+    /**
+     * Takes an Array of JSON objects and parses it into an array of Personas
+     * @param array JSON Array of objects
+     * @return An ArrayList with the parsed persona objects
+     */
     public static ArrayList<Persona> deJSONifyArray(JSONArray array){
 
         ArrayList<Persona> list = new ArrayList<Persona>();

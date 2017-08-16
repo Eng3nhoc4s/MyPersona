@@ -6,6 +6,6 @@ package mypersona.ngenhocas.pt.mypersona;
 
 public class Configurations {
 
-    //The file that contains teh personas in JSON format
+    //The file that contains the personas in JSON format
     public final static String PERSONA_FILENAME = ".mypersonas";
 }

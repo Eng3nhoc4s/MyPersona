@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by N-genhocas on 15/08/2017.
+ * Visualize Persona Data
  */
 
 public class Visualizer extends AppCompatActivity {

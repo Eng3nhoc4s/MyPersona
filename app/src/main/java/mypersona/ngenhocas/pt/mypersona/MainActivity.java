@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Persona> personas = new ArrayList<Persona>();
 
+        // TEST CODES
+
         /**
          *                        name   age   style   occupation   physicalTraces   personality   biography
          */
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         Log.v("TEST", s);
+
+        //END OF TESTCODE
 
         PersonaAdapter displayAdapter = new PersonaAdapter(this, personas);
 

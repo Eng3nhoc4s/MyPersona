@@ -15,15 +15,15 @@ import java.io.OutputStreamWriter;
 
 
 /**
- * Created by N-genhocas on 15/08/2017.
+ * Various utilities regarding file operations
  */
 
 public class FileUtils {
 
     /**
-     *
-     * @param context
-     * @return
+     * Reads the specified file and returns it's contents
+     * @param context The context
+     * @return The file content
      */
     public static String readPersonaFile(Context context) {
 
@@ -56,9 +56,9 @@ public class FileUtils {
     }
 
     /**
-     *
-     * @param context
-     * @param data
+     * Writes the specified file with the provided data
+     * @param context The context
+     * @param data The string to be writen on the file
      */
     public static void writePersonaFile(Context context, String data) {
 
