@@ -1,10 +1,13 @@
 package mypersona.ngenhocas.pt.mypersona;
 
-import org.json.JSONArray;
+import android.content.Context;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by N-genhocas on 15/08/2017.
@@ -17,7 +20,7 @@ public class JSONUtils {
      * @param p The persona object
      * @return A JSON object
      */
-    public static JSONObject jsonifyPersona(Persona p) {
+    public static JSONObject personaToJSON(Persona p) {
 
         JSONObject jsonObject = new JSONObject();
 
@@ -45,7 +48,7 @@ public class JSONUtils {
      * @param object The JSON object to be parsed
      * @return A Persona object from the JSON file
      */
-    public static Persona personifyJSON(JSONObject object) {
+    public static Persona JSONtoPersona(JSONObject object) {
 
 
         Persona persona = new Persona();
@@ -66,24 +69,26 @@ public class JSONUtils {
         return persona;
     }
 
-    /**
-     * Takes an Array of JSON objects and parses it into an array of Personas
-     * @param array JSON Array of objects
-     * @return An ArrayList with the parsed persona objects
-     */
-    public static ArrayList<Persona> deJSONifyArray(JSONArray array){
 
-        ArrayList<Persona> list = new ArrayList<Persona>();
+    public static ArrayList<Persona> loadJSONtoPersonaList(Context context, JSONObject json){
+        ArrayList<Persona> pl = new ArrayList<>();
 
-        for(int i = 0; i < array.length(); i++){
-            try {
-                Persona p = personifyJSON(array.getJSONObject(i));
-                list.add(p);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        //Check if json is null
+        if(json != null) {
+
+            Iterator it = json.keys();
+
+            while (it.hasNext()) {
+
+                String key = (String) it.next();
+
+                try {
+                    pl.add(JSONUtils.JSONtoPersona((JSONObject) json.get(key)));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
-
-        return list;
+        return pl;
     }
 }

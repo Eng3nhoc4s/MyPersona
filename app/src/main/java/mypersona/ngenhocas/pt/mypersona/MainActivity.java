@@ -7,61 +7,48 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import static java.security.AccessController.getContext;
-
-
 public class MainActivity extends AppCompatActivity {
+
+    public static JSONObject personaListJSON;
+    private ArrayList<Persona> personas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Persona> personas = new ArrayList<Persona>();
 
-        // TEST CODES
+        personaListJSON = new JSONObject();
 
-        /**
-         *                        name   age   style   occupation   physicalTraces   personality   biography
-         */
-        Persona p1 = new Persona("Nhocas von Fueuer", 25, "Steampunk", "Bum",       "Fat",  "Grumpy", "Era uma vez...");
-        Persona p2 = new Persona("Von Syco",          40, "Steampunk", "Superstar", "Tall", "Nice",   "Era duas vez...");
+        //The Persona object array list
+        personas = new ArrayList<Persona>();
 
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.put(JSONUtils.jsonifyPersona(p1));
-        jsonArray.put(JSONUtils.jsonifyPersona(p2));
 
-        FileUtils.writePersonaFile(this, jsonArray.toString());
+        //TODO: REMOVE - FOR DEBUG
+        //FileUtils.writePersonaFile(this, "");
 
-        String s = FileUtils.readPersonaFile(this);
-
-        JSONArray getList;
+        //Load the persona list in JSON form
         try {
-            getList = new JSONArray(s);
-
-            personas = JSONUtils.deJSONifyArray(getList);
-
+            personaListJSON = new JSONObject(FileUtils.readPersonaFile(this));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        //Parse the persona list from JSOn to Array List
+        personas = JSONUtils.loadJSONtoPersonaList(this, personaListJSON);
 
-
-        Log.v("TEST", s);
-
-        //END OF TESTCODE
-
+        //Initialize the persona custom adapter
         PersonaAdapter displayAdapter = new PersonaAdapter(this, personas);
 
+        //Get the view to populate
         ListView personaList = (ListView) findViewById(R.id.personaListView);
 
+        //Set the adapter
         personaList.setAdapter(displayAdapter);
 
         /**************************************
@@ -72,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         newPersona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this, PersonaCreate.class);
                 startActivity(intent);
             }
         });
     }
-
 }

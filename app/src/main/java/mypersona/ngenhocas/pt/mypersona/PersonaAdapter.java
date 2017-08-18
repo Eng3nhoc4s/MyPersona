@@ -46,13 +46,10 @@ public class PersonaAdapter extends ArrayAdapter<Persona> {
 
                 //TODO: Need to get hand on this
 
-//                Intent intent = new Intent(getContext(), Visualizer.class);
-//                intent.putExtra("ACTIVITY_NAME", currentGridDisplayEntry.getmName());
-//                intent.putExtra("SONG_TRACK_ID", currentGridDisplayEntry.getmMusicResourceID());
-//                intent.putExtra("DISPLAY_IMAGE", currentGridDisplayEntry.getmVisualizerImageID());
-//                intent.putExtra("DESCRIPTIVE_TEXT", currentGridDisplayEntry.getmTextResourceID());
-//
-//                getContext().startActivity(intent);
+                Intent intent = new Intent(getContext(), Visualizer.class);
+                intent.putExtra("NAME", currentPersonaEntry.getName());
+
+                getContext().startActivity(intent);
 
             }
         });

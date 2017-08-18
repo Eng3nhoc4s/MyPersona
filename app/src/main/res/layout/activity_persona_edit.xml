@@ -122,9 +122,10 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_save_persona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_save_persona"/>
+            android:text="@string/btn_save_persona" />
 
     </LinearLayout>
 
