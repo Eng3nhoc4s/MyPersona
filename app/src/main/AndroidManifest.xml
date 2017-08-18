@@ -32,6 +32,11 @@
             android:label="@string/title_persona_edit"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".Visualizer"
+            android:label="Visualizer"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

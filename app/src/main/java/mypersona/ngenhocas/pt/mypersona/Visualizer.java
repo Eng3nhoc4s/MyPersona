@@ -23,36 +23,79 @@ public class Visualizer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.persona_visualizer);
 
+        //GET THE PERSON ID
         Intent intent = getIntent();
         String id = intent.getStringExtra("NAME");
 
+        //PARSE PERSON OBJECT
         try {
             p = JSONUtils.JSONtoPersona((JSONObject) personaListJSON.get(id));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        //NAME - Always shows
         TextView name = (TextView) findViewById(R.id.tv_name);
         name.setText(p.getName());
 
+        //AGE
         TextView age = (TextView) findViewById(R.id.tv_age);
-        age.setText(p.getAge());
+        int tmpInt;
+        if((tmpInt = p.getAge()) != 0)
+            age.setText(Integer.toString(p.getAge()));
+        else
+            age.setText(getString(R.string.info_not_set));
 
+
+        String tmpStr;
+
+        //STYLE
         TextView style = (TextView) findViewById(R.id.tv_style);
-        style.setText(p.getStyle());
+        tmpStr = p.getStyle();
+        if(tmpStr != null && !tmpStr.isEmpty())
+            style.setText(tmpStr);
+        else
+            style.setText(getString(R.string.info_not_set));
 
+
+        //OCCUPATION
         TextView occupation = (TextView) findViewById(R.id.tv_occupation);
-        occupation.setText(p.getOccupation());
+        tmpStr = p.getOccupation();
+        if(tmpStr != null && !tmpStr.isEmpty())
+            occupation.setText(tmpStr);
+        else
+            occupation.setText(getString(R.string.info_not_set));
 
+
+        //PHYSICAL TRACES
         TextView physical = (TextView) findViewById(R.id.tv_physicaltraces);
-        physical.setText(p.getPhysicalTraces());
+        tmpStr = p.getPhysicalTraces();
+        if(tmpStr != null && !tmpStr.isEmpty())
+            physical.setText(tmpStr);
+        else
+            physical.setText(getString(R.string.info_not_set));
 
+
+        //PERSONALITY
         TextView personality = (TextView) findViewById(R.id.tv_personality);
-        personality.setText(p.getPersonality());
+        tmpStr = p.getPersonality();
+        if(tmpStr != null && !tmpStr.isEmpty())
+            personality.setText(tmpStr);
+        else
+            personality.setText(getString(R.string.info_not_set));
 
+
+        //BIOGRAPHY
         TextView bio = (TextView) findViewById(R.id.tv_biography);
-        bio.setText(p.getBiography());
+        tmpStr = p.getBiography();
+        if(tmpStr != null && !tmpStr.isEmpty())
+            bio.setText(tmpStr);
+        else
+            bio.setText(getString(R.string.info_not_set));
 
 
+        //TODO: RIG THE EDIT PERSONA BUTTON
+
+        //TODO: RIG THE DELETE PERSONA BUTTON
     }
 }

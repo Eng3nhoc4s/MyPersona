@@ -22,15 +22,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //DEBUG CODE TO RESET FILE
+//        FileUtils.writePersonaFile(this, "");
+
 
         personaListJSON = new JSONObject();
 
         //The Persona object array list
         personas = new ArrayList<Persona>();
-
-
-        //TODO: REMOVE - FOR DEBUG
-        //FileUtils.writePersonaFile(this, "");
 
         //Load the persona list in JSON form
         try {

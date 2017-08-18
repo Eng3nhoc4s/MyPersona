@@ -21,4 +21,7 @@
     <string name="btn_save_persona">Save</string>
     <string name="error_no_name_provided">No name provided! A unique name is needed to save your persona.</string>
     <string name="error_persona_already_exists">A persona with that name already exists. Please choose another name.</string>
+    <string name="persona_saved_successfully">Persona saved successfully.</string>
+    <string name="info_not_set">Not Set</string>
+    <string name="btn_delete_persona">Delete Persona</string>
 </resources>

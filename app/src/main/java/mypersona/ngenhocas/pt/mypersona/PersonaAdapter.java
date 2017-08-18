@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,9 +48,10 @@ public class PersonaAdapter extends ArrayAdapter<Persona> {
                 //TODO: Need to get hand on this
 
                 Intent intent = new Intent(getContext(), Visualizer.class);
+                Log.e("PERSONA NAME", currentPersonaEntry.getName());
                 intent.putExtra("NAME", currentPersonaEntry.getName());
 
-                getContext().startActivity(intent);
+                view.getContext().startActivity(intent);
 
             }
         });

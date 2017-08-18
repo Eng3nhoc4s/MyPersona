@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class PersonaCreate extends AppCompatActivity {
         setContentView(R.layout.activity_persona_edit);
 
         //The persona
-        p = new Persona("Rodrigo", 25, "STeampunk", "Student", "Fat", "Annoying", "Era uma vez...");
+        p = new Persona();
 
         //Age
         age = (EditText) findViewById(R.id.txt_persona_age);
@@ -54,52 +55,73 @@ public class PersonaCreate extends AppCompatActivity {
         physicalTraces = (EditText) findViewById(R.id.txt_physical_traces);
 
 
-
-
         //Get the save button
         Button save_btn = (Button) findViewById(R.id.btn_save_persona);
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                //Hide the keyboard on save
+                try {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                } catch (Exception e) {
 
-//                String b = biography.toString();
-//            if (b != null && b != "")
-//                p.setBiography(b);
-//
-//                String n = name.toString();
-//            if (n != null && n != "")
-//                p.setName(n);
-//
-//                String o = occupation.toString();
-//            if (o != null && o != "")
-//                p.setOccupation(o);
-//
-//                String pe = personality.toString();
-//            if (pe != null && pe != "")
-//                p.setPersonality(pe);
-//
-//                String ph = physicalTraces.toString();
-//            if (ph != null && ph != "")
-//                p.setPhysicalTraces(ph);
+                }
 
-                //ERROR
-                if(p.getName() == null){
+                //TODO: GET THE VALUES FROM FIELD TO POPULATE PERSONA
+
+                String a = age.getText().toString();
+
+                if (age.length() != 0)
+                    p.setAge(Integer.parseInt(a));
+                else
+                    p.setAge(0);
+
+                p.setBiography(biography.getText().toString());
+
+                p.setName(name.getText().toString());
+
+                p.setOccupation(occupation.getText().toString());
+
+                p.setPersonality(personality.getText().toString());
+
+                p.setPhysicalTraces(physicalTraces.getText().toString());
+
+                //ERROR - No name
+                if (p.getName().length() == 0) {
 
                     Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.error_no_name_provided), Toast.LENGTH_LONG);
                     toast.show();
 
-                //ERROR - Persona with that name already exists
-                }else if(personaListJSON != null && personaListJSON.has(p.getName())){
+                    //ERROR - Persona with that name already exists
+                } else if (personaListJSON != null && personaListJSON.has(p.getName())) {
 
-                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.error_persona_already_exists), Toast.LENGTH_LONG);
-                    toast.show();
+                    personaListJSON.remove(p.getName());
 
-                }else{
+                    //TODO: Warn user there is already a persona with same name and is gonna be overwritten
+
                     try {
                         personaListJSON.put(p.getName(), JSONUtils.personaToJSON(p));
-                        Log.e("PERSONAS",  personaListJSON.toString());
                         FileUtils.writePersonaFile(getApplicationContext(), personaListJSON.toString());
+
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.persona_saved_successfully), Toast.LENGTH_LONG);
+                        toast.show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+//                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.error_persona_already_exists), Toast.LENGTH_LONG);
+//                    toast.show();
+
+                } else {
+                    try {
+                        personaListJSON.put(p.getName(), JSONUtils.personaToJSON(p));
+                        FileUtils.writePersonaFile(getApplicationContext(), personaListJSON.toString());
+
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.persona_saved_successfully), Toast.LENGTH_LONG);
+                        toast.show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
